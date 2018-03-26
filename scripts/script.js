@@ -19,13 +19,35 @@ $(document).ready(function(){
             const wind = data['wind']['speed'];
             const city = data['name'];
             const icon = data['weather'][0]['icon']
-            $('#data').html(`<p>${description}</p></br>
-              <p>${temperature} °C</p></br>
-              <p>${wind} km/h</p></br>
+            $('#data').html(`
+              <p>Type of weather: ${description}</p></br>
+              <p id='temperature'> ${temperature} °C</p></br>
+              <p>Wind speed: ${wind} km/h</p></br>
               <p>City: ${city}</p>`)
             $('#weather-icon').html(`<img src=${icon}/>`)
          }
       });
     });
   }
+  $('#convert-temperature').click(function(){
+    if ( $(this).text() == "To fahrenheit" ) {
+      var celsius = $('#temperature').text();
+      var temp = new RegExp(/[0-9]+/);
+      if (temp.test(celsius)){
+        var tempInFahrenheit = (parseInt(celsius.match(temp)[0]) * (9/5) + 32).toFixed(2);
+        $("#temperature").text(`${tempInFahrenheit} °F`);
+        $(this).text("To celsius");
+      }
+    }
+    else if ($(this).text() == "To celsius"){
+      var fahrenheit = $('#temperature').text();
+      var temp = new RegExp(/[0-9]+/);
+      if (temp.test(fahrenheit)){
+        var tempInCelsius = ((parseInt(fahrenheit.match(temp)[0]) - 32) / (9/5)).toFixed(2);
+        $("#temperature").text(`${tempInCelsius} °C`);
+        $(this).text("To fahrenheit");
+      }
+    }
+  })
 });
+
