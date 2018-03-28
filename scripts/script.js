@@ -19,13 +19,13 @@ $(document).ready(function(){
             const description = data['weather'][0]['description'];
             const temperature = data['main']['temp'];
             const wind = data['wind']['speed'];
-            $('#weather-icon').html(`<img src=${icon}/>`);
-            $('#data').html(`
-              <p>${city}</p>
-              <p>${description}</p>
-              <p id='temperature'> ${temperature} °C</p>
-              <p>Wind: ${wind} km/h</p>`);
-            GenerateBcg(data['weather'][0]['main']);
+            $('#weather-icon').html(`<img id="icon" src=${icon}/>`);
+            $('#city').html(`<p>${city}</p>`);
+            $('#description').html(`<p>${description}</p>`);
+            $('#temp').html(`<p id='temperature'> ${temperature} °C</p>`);
+            $('#wind').html(`<p>Wind: ${wind} km/h</p>`);
+
+            GenerateBcg("Drizzle")//(data['weather'][0]['main']);
          }
       });
     });

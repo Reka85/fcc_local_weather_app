@@ -5,10 +5,37 @@ body{
   color: #eaeaea;
 }
 
-
 .content{
-  margin-top: 15vh;
+  margin-top: 20vh;
   margin-bottom: 2vh;
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-columns: 50% 50%;
+  background-color: rgba(200,200,200,0.1);
+  border-radius: 4px;
+  padding: 20px 0 24px 0;
+}
+
+.main{
+  grid-row: 1 / span 4;
+  grid-column: 1 / span 1;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1.6em;
+}
+
+#icon{
+  height:3em;
+}
+
+#temp-button{
+  grid-row: 4 / span 1 ;
+  grid-column: 2 / span 1;
+}
+
+#data{
+  grid-row: 1 / span 1;
+  grid-column: 2 /span 3;
 }
 
 #convert-temperature{
