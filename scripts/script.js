@@ -15,17 +15,15 @@ $(document).ready(function(){
          },
          success: function(data) {
             const city = data['name'];
-            const icon = data['weather'][0]['icon'];
             const description = data['weather'][0]['description'];
             const temperature = data['main']['temp'];
             const wind = data['wind']['speed'];
-            $('#weather-icon').html(`<img id="icon" src=${icon}/>`);
             $('#city').html(`<p>${city}</p>`);
             $('#description').html(`<p>${description}</p>`);
             $('#temp').html(`<p id='temperature'> ${temperature} °C</p>`);
             $('#wind').html(`<p>Wind: ${wind} km/h</p>`);
 
-            GenerateBcg("Drizzle")//(data['weather'][0]['main']);
+            GenerateBcg(data['weather'][0]['main']);
          }
       });
     });
@@ -77,6 +75,7 @@ $(document).ready(function(){
         $('body').css('color', '#212529')
     }
     $("body").css('background-image', `url(\"https://source.unsplash.com//${imgCode}/1600x900\")`);
+    $('#weather-icon').html(`<img id="icon"  alt="${weather_type} icon" src="./images/${weather_type.toLowerCase()}.png">`);
   }
 });
 
