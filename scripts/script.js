@@ -22,9 +22,9 @@ $(document).ready(function(){
             $('#weather-icon').html(`<img src=${icon}/>`);
             $('#data').html(`
               <p>${city}</p>
-              <p>${description}</p></br>
-              <p id='temperature'> ${temperature} °C</p></br>
-              <p>Wind: ${wind} km/h</p></br>`);
+              <p>${description}</p>
+              <p id='temperature'> ${temperature} °C</p>
+              <p>Wind: ${wind} km/h</p>`);
             GenerateBcg(data['weather'][0]['main']);
          }
       });
@@ -51,31 +51,30 @@ $(document).ready(function(){
     switch(weather_type){
       case('Clouds'):
         var imgCode = "S7ChB4FBboI";
-        $('body').css('color', "white");
         break;
       case('Thunderstorm'):
         var imgCode = "Cm5zI68Wdew";
-        $('body').css('color', "white");
         break;
       case('Drizzle'):
         var imgCode = "f-X4hUILms0";
         break;
       case('Rain'):
         var imgCode = "8yt8kBuEqok";
-        $('body').css('color', "white");
         break;
       case('Snow'):
         var imgCode = "yNaGxHqjOuw";
+        $('body').css('color', '#212529')
         break;
       case('Clear'):
         var imgCode = "W51VK3Obcj0";
+        $('body').css('color', '#212529')
         break;
       case('Extreme'):
         var imgCode = "8eFbe3jQZ7Y";
-        $('body').css('color', "white");
         break;
       default:
         var imgCode = "pgGnvJF7p20";
+        $('body').css('color', '#212529')
     }
     $("body").css('background-image', `url(\"https://source.unsplash.com//${imgCode}/1600x900\")`);
   }
